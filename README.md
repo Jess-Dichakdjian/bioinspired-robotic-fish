@@ -2,11 +2,11 @@
 
 **Programmable Hybrid Oceanic Entity: Networked Inertial Explorer**
 
-A bioinspired robotic fish based on **Atlantic mackerel carangiform locomotion**, combining a mechanically actuated segmented tail, waterproof 3D-printed body, silicone sealing, embedded electronics, closed-loop propulsion control, and experimental underwater validation.
+A physically built bioinspired robotic fish based on **Atlantic-mackerel carangiform locomotion**, combining a segmented mechanically actuated tail, waterproof 3D-printed structure, embedded sensing, closed-loop propulsion control, active head stabilization, hydrodynamic modelling, and experimental in-water validation.
 
 > **Status:** Completed academic team project  
 > **Team:** Abdelrhman Amgad, Ahmed Mounir, Giulia Di Sipio, Tony Al Helou, Jessica Dichakdjian  
-> **Course:** Bioinspired Robotics Lab, Politecnico di Milano  
+> **Course:** Bioinspired Robotics Lab — Politecnico di Milano  
 > **Academic Year:** 2025–2026
 
 ---
@@ -18,44 +18,47 @@ A bioinspired robotic fish based on **Atlantic mackerel carangiform locomotion**
 | **Robot type** | Bioinspired robotic fish |
 | **Biological inspiration** | Atlantic mackerel |
 | **Locomotion** | Body-Caudal Fin (BCF), carangiform |
-| **Main propulsion** | Single DC motor driving segmented tail |
-| **Steering** | Servo-actuated head |
-| **Control** | Arduino-based closed-loop propulsion + head stabilization |
-| **Sensors** | Motor encoder + MPU-9250 IMU |
-| **Manufacturing** | 3D printing, bent steel shaft, silicone molding |
-| **Waterproofing** | Silicone sleeve, sealing, enclosed electronics |
-| **Validation** | Dry motion, sealing, buoyancy, thrust and in-water swimming |
+| **Propulsion** | Single DC motor driving a segmented tail |
+| **Steering / stabilization** | Servo-actuated head |
+| **Controller** | Arduino Nano |
+| **Feedback** | Motor encoder + MPU-9250 IMU |
+| **Control** | PID propulsion-speed loop + head stabilization |
+| **Manufacturing** | SolidWorks, 3D printing, silicone molding, bent steel shaft |
+| **Validation** | Dry tests, waterproofing, buoyancy, thrust measurement, swimming |
 | **Final demonstrated speed** | 0.33 m/s at 1.5 Hz |
+| **Normalized speed** | 0.73 body lengths/s |
 
 ---
 
 # Project Overview
 
-The goal of PHOENIX was to design and fabricate a **waterproof, buoyant robotic fish capable of sustained straight-line swimming**, inspired by the high-speed and efficient propulsion of the Atlantic mackerel.
+The goal of PHOENIX was to design, manufacture, integrate, and experimentally validate a **waterproof robotic fish capable of sustained straight-line swimming**.
 
-The robot uses **carangiform locomotion**, where most of the body remains relatively rigid while oscillation is concentrated in the posterior section and caudal fin.
+The robot was inspired by Atlantic-mackerel propulsion and simplified into a practical electromechanical architecture suitable for rapid prototyping.
 
-The overall development process included:
+The complete engineering workflow covered:
 
 ```text
-Biological Study
-      ↓
-Kinematic & Dynamic Modelling
-      ↓
-Mechanical Design
-      ↓
+Biological Locomotion Study
+            ↓
+Kinematics & Hydrodynamic Modelling
+            ↓
+Mechanical Architecture
+            ↓
 CAD & Component Selection
-      ↓
-Manufacturing
-      ↓
-Electronics & Control
-      ↓
+            ↓
+Manufacturing & Silicone Fabrication
+            ↓
+Electronics Integration
+            ↓
+Embedded Control
+            ↓
 Waterproofing & Buoyancy
-      ↓
+            ↓
 Experimental Validation
 ```
 
-The final prototype successfully achieved forward swimming in water and demonstrated the integration of the mechanical, electronic and control subsystems.
+The final prototype successfully generated forward propulsion in water and integrated the mechanical, electronic, sensing, and control subsystems into a functional swimming robot.
 
 ---
 
@@ -63,192 +66,176 @@ The final prototype successfully achieved forward swimming in water and demonstr
 
 This was a **five-person team project**.
 
-My work focused primarily on mechanical design, fabrication, integration and testing.
+My contributions were concentrated in mechanical design, physical fabrication, integration, component selection, and experimental testing.
 
 ## Mechanical Design
 
-I contributed to the CAD and mechanical design of the **tail mechanism**, including the segmented structure responsible for reproducing the required oscillatory motion.
+I worked on the **mechanical design and CAD of the tail system**, including the segmented structure used to reproduce the required oscillatory swimming motion.
 
-I also worked directly on the main propulsion mechanism and its physical implementation.
+I also contributed to development of the propulsion mechanism that converts motor rotation into lateral tail oscillation.
 
-## Manufacturing & Prototyping
+## Manufacturing & Integration
 
-My hands-on contributions included:
+My hands-on work included:
 
 - 3D printing robot components
 - mechanical assembly
 - silicone molding
-- manual shaft bending
+- manual bending of the drive shaft
 - integration of the tail mechanism
-- sealing and waterproofing work
-- iterative prototype assembly
+- sealing and waterproofing
+- general system integration and troubleshooting
 
-## Electronics & Component Integration
+## Electronics & Component Selection
 
-I contributed to component selection and integration, particularly identifying electronic components that were:
+I contributed to selecting and integrating components that had to satisfy two competing requirements:
 
-- compact enough to fit inside the robot body
-- sufficiently powerful for underwater operation
-- compatible with the available internal volume
-- suitable for the required propulsion performance
+- fit within the limited internal volume of the fish
+- provide sufficient performance for underwater propulsion and sensing
 
-I also assisted with general electronics and hardware integration.
+I also assisted with the general electronics integration process.
 
-## Testing
+## Experimental Testing
 
-I participated in the experimental validation of the complete system, including:
+I participated in the full test programme, including:
 
-- dry tail-motion tests
-- waterproofing checks
-- buoyancy tests
-- in-water propulsion tests
-- thrust testing
+- dry mechanical validation
+- waterproofing tests
+- buoyancy checks
+- thrust measurement
+- initial swimming trials
 - final swimming validation
 
-The control software and electronics were developed collaboratively by the team. Repository code is therefore presented as **team project code**, not as a claim of sole individual authorship.
+The embedded software, electronics, and system architecture were developed collaboratively by the team. Code in this repository is therefore presented as **team project code**, not as a claim of sole individual authorship.
 
 ---
 
 # Biological Inspiration
 
-PHOENIX was inspired by the **Atlantic mackerel**, selected for its efficient high-speed swimming.
+PHOENIX was inspired by the **Atlantic mackerel**, selected for its efficient high-speed swimming characteristics.
 
 The robot reproduces a simplified form of **Body-Caudal Fin carangiform locomotion**.
 
-In this mode:
+In carangiform swimming:
 
-- most body deformation occurs in the rear section
-- the tail generates a travelling lateral wave
-- the caudal fin produces the dominant propulsive force
+- most of the body remains relatively rigid
+- oscillation is concentrated in the posterior section
+- a travelling lateral wave propagates toward the tail
+- the caudal fin generates the dominant propulsive force
 - passive fins improve stability
-- the head can be actively adjusted for steering
 
 ---
 
 # Mechanical Architecture
 
-The robot structure consists of:
+The robot consists of:
 
 ```text
-Head
-  ↓
+Servo-Actuated Head
+        ↓
 Rigid Main Body
-  ↓
+        ↓
 Segmented Tail
-  ↓
+        ↓
 Active Tail Link
-  ↓
+        ↓
 Rigid Caudal Fin
 ```
 
-The morphology was simplified from the biological fish to preserve the essential locomotion behaviour while keeping the mechanism manufacturable.
+The biological morphology was simplified into a mechanically realizable multi-link system while retaining the essential posterior-body oscillation required for carangiform propulsion.
 
-The robot contains:
+### Final CAD Assembly
 
-- rigid central electronics compartment
-- segmented tail links
-- active tail drive
-- rigid caudal fin
-- passive stabilizing fins
-- independently actuated head
+[▶ View final CAD assembly](P.H.O.E.N.I.X_Media/P.H.O.E.N.I.X_CAD/final_cad_assembly.mp4)
 
 ---
 
-# Tail Actuation Mechanism
+# Tail Propulsion Mechanism
 
 The propulsion system uses a modified **Scotch-yoke / bent-shaft mechanism**.
 
 ```text
-DC Motor Rotation
-      ↓
+DC Motor
+   ↓
 Bent Shaft
-      ↓
-Oscillatory Link Motion
-      ↓
+   ↓
+Oscillating Flapper / Linkage
+   ↓
 Segmented Tail Motion
-      ↓
-Caudal-Fin Propulsion
+   ↓
+Caudal Fin
+   ↓
+Forward Thrust
 ```
 
-A single actuator converts continuous motor rotation into lateral tail oscillation.
+A single rotating motor input is converted into lateral oscillation.
 
-Mechanical stops and shaft geometry were used to control the angular range of the tail links.
+Mechanical stops and shaft geometry define the permitted angular motion of the tail links.
 
 The architecture provides:
 
 - high tail-beat frequency
-- harmonic oscillation
+- periodic oscillation
 - single-actuator propulsion
-- adjustable oscillation amplitude
+- mechanically constrained link amplitudes
+
+### Tail Mechanism
+
+[▶ View tail mechanism](P.H.O.E.N.I.X_Media/P.H.O.E.N.I.X_CAD/tail_mechanism.mp4)
 
 ---
 
-# Head Steering
+# Active Head Steering
 
-The head is driven independently using a servo motor.
+The head is independently actuated by a servo motor.
 
-The purpose of the head mechanism is to:
+Its role is to:
 
-- correct heading drift
-- improve straight-line swimming
-- provide active steering capability
+- compensate for heading drift
+- improve straight-line stability
+- provide active steering authority
 
-The servo receives orientation feedback from the IMU through the stabilization control loop.
+The servo command is generated using IMU feedback in the stabilization loop.
 
 ---
 
 # Fin Design
 
-The fins were designed using streamlined airfoil-inspired profiles.
-
-The main fin set includes:
+The robot includes:
 
 - caudal fin
 - dorsal fin
 - anal fin
 - two lateral fins
 
-The **caudal fin** is responsible for primary thrust generation.
+The **caudal fin** generates the primary propulsion force.
 
-The remaining fins mainly improve passive stability and reduce roll/yaw during swimming.
+The remaining fins improve passive roll, yaw, and directional stability.
 
 ---
 
-# Materials
+# Materials & Fabrication
+
+The prototype combined rigid and compliant materials.
 
 | Material | Application |
 |---|---|
-| PLA | Outer body and fins |
+| PLA | External body and fins |
 | ABS | Motor supports |
 | Low-carbon steel | Bent drive shaft |
 | Carbon fiber | Internal spar |
 | Brass | Motor coupling |
 | Ecoflex 00-10 | Tail and neck silicone sleeves |
-| Elastic latex membrane | Additional waterproofing |
+| Elastic membrane | Additional waterproofing |
 
-Material selection balanced:
-
-- stiffness
-- manufacturability
-- waterproofing
-- mass
-- structural strength
-- compliance
-
----
-
-# Manufacturing
-
-The prototype was manufactured using a combination of additive manufacturing and manual fabrication.
-
-The process included:
+The manufacturing workflow included:
 
 ```text
 CAD Design
     ↓
 3D Printing
     ↓
-Silicone Mold Printing
+Silicone Mold Fabrication
     ↓
 Ecoflex Casting
     ↓
@@ -256,147 +243,113 @@ Steel Shaft Bending
     ↓
 Mechanical Assembly
     ↓
-Electronics Integration
+Electronics Packaging
     ↓
 Waterproofing
 ```
 
-Key manufactured components included:
-
-- rigid body sections
-- tail links
-- fins
-- silicone tail sleeve
-- silicone neck sleeve
-- motor supports
-- bent drive shaft
+![Manufacturing process](P.H.O.E.N.I.X_Media/P.H.O.E.N.I.X_Images/manufacturing_process.png)
 
 ---
 
-# Waterproofing Strategy
+# Waterproofing
 
-Waterproofing was critical because the electronics and propulsion system operate fully submerged.
+Because the robot operates submerged, waterproofing was a major engineering constraint.
 
-The design used:
+The final design used:
 
-- sealed rigid body sections
+- enclosed electronics compartments
 - silicone sleeves
 - silicone adhesive
-- protected cable/motor interfaces
-- enclosed electronics compartment
+- protected shaft and cable interfaces
 - iterative leak testing
+- sealed mechanical interfaces
 
-Validation was carried out in stages before propulsion testing.
+### Immersion / Leak Test
+
+![Water submersion test](P.H.O.E.N.I.X_Media/P.H.O.E.N.I.X_Testing_Videos/water_submersion_leak_test.jpeg)
 
 ---
 
 # Buoyancy
 
-The robot was designed to approach neutral buoyancy.
-
-Buoyancy tuning considered:
+The fish was tuned toward near-neutral buoyancy using:
 
 - internal air volume
-- component mass
-- robot body volume
-- ballast placement
+- component placement
+- body mass
+- steel ballast
 
-Small steel ballast masses were used during physical tuning.
+Buoyancy was validated experimentally before powered swimming.
 
 ---
 
-# Electronics
+# Electronics Architecture
 
-The robot uses an embedded Arduino-based control architecture.
-
-Main components include:
+The embedded system includes:
 
 - Arduino Nano
-- brushed DC geared motor with encoder
+- brushed DC geared motor
+- integrated encoder
 - DRV8871 motor driver
 - MPU-9250 IMU
 - steering servo
 - battery
-- Hall-effect / magnetic user input
+- Hall-effect magnetic input
 
-The propulsion motor selected for the final system was:
+![Electronic architecture](P.H.O.E.N.I.X_Media/P.H.O.E.N.I.X_Images/electronic_architecture.png)
 
-```text
-ChiHai CHR-GM25-370ABHL
-12 V brushed DC geared motor
-Integrated incremental encoder
-350 RPM rated speed
-```
+### Internal Electronics Packaging
+
+![Internal electronics layout](P.H.O.E.N.I.X_Media/P.H.O.E.N.I.X_Images/internal_electronics_layout.png)
+
+Component packaging was a significant design constraint because the electronics had to fit inside the waterproof body while preserving suitable mass distribution and buoyancy.
 
 ---
 
 # Software Architecture
 
-The embedded software is divided into several functional modules:
+The embedded software contains several functional modules:
 
 ```text
 Mode Manager
-     ↓
+      ↓
 Propulsion Controller
-     ↓
-Motor Driver
-     ↓
-DC Motor
-
-Encoder Feedback
-     ↑
+      ↓
 PID Speed Control
+      ↓
+Motor Driver
+      ↓
+DC Motor
+      ↑
+Encoder Feedback
 
 
-IMU Feedback
-     ↓
+MPU-9250
+      ↓
 Drift Estimation
-     ↓
-Servo Head Correction
+      ↓
+Head Stabilization
+      ↓
+Servo Motor
 ```
 
-The control system includes:
+The system supports:
 
+- OFF mode
 - normal swimming mode
 - fast swimming mode
-- soft-start motor ramp
-- motor-speed PID control
-- encoder feedback
-- IMU gyro feedback
-- head stabilization
-- magnetic user interface
+- soft-start ramp
+- encoder-based PID speed control
+- IMU-based drift estimation
+- servo head correction
+- magnetic external control
 
 ---
 
-# Operating Modes
+# Propulsion Control
 
-A finite-state machine manages robot operation.
-
-```text
-OFF
- ↓
-LOAD NORMAL
- ↓
-NORMAL SWIM
-
-or
-
-OFF
- ↓
-LOAD FAST
- ↓
-FAST SWIM
-```
-
-A magnetic sensor provides a waterproof external user interface.
-
-Short and long magnetic interactions are used to change robot states without mechanical buttons penetrating the hull.
-
----
-
-# Closed-Loop Propulsion Control
-
-Motor speed is controlled using encoder feedback.
+Motor speed is regulated using encoder feedback:
 
 ```text
 Target Frequency
@@ -407,120 +360,172 @@ PID Controller
       ↓
 PWM Command
       ↓
-Motor Driver
+DRV8871
       ↓
 DC Motor
       ↑
 Encoder Feedback
 ```
 
-The system supports two primary operating points:
+Primary operating points were approximately:
 
-- normal swimming: approximately **1.5 Hz**
-- fast swimming: approximately **3.0 Hz**
+```text
+Normal mode: 1.5 Hz
+Fast mode:   3.0 Hz
+```
+
+The soft-start stage reduces sudden mechanical loading during startup.
 
 ---
 
 # Head Stabilization
 
-Body rotation is measured using the MPU-9250 IMU.
+The MPU-9250 gyroscope measures body rotation.
 
 ```text
-IMU Gyroscope
-      ↓
+Gyroscope
+    ↓
 Drift Estimate
-      ↓
+    ↓
 Servo Mapping
-      ↓
+    ↓
 Head Correction
 ```
 
-The propulsion and stabilization loops operate independently.
+The propulsion loop and the head-stabilization loop operate independently.
+
+---
+
+# Arduino Software
+
+The final integrated robot software is available at:
+
+```text
+P.H.O.E.N.I.X_Software/
+└── PHOENIX_CODE/
+    └── PHOENIX_CODE.ino
+```
+
+The repository also preserves intermediate test software:
+
+```text
+Software_Used_During_Testing/
+├── Calibration_Code/
+├── Main_Logic_withPID/
+└── Ramp_up/
+```
+
+These files document the development process rather than showing only the final result.
+
+The project also contains a separate servo test program:
+
+```text
+P.H.O.E.N.I.X_Software/Servo/Servo.ino
+```
 
 ---
 
 # Kinematics & Hydrodynamic Modelling
 
-The robot was modelled as a rigid body with a segmented multi-link tail.
+The fish was represented using a rigid main body and a segmented multi-link tail.
 
-The analysis included:
+The modelling work included:
 
 - prescribed joint motion
 - tail centerline reconstruction
-- tail geometry approximation
-- hydrodynamic thrust estimation
+- equivalent tail geometry
+- hydrodynamic force estimation
+- thrust prediction
 - power estimation
 - propulsive efficiency
-- motor sizing
+- actuator sizing
 
-A Lighthill-type elongated-body / added-mass model was used to estimate tail-generated hydrodynamic forces.
+A slender-body / added-mass-based hydrodynamic model was used to approximate the forces generated by the active tail.
 
-These results were used as inputs for actuator sizing and design decisions.
+The MATLAB model is available at:
+
+```text
+P.H.O.E.N.I.X_Software/
+└── Dynamics Simulation/
+    └── Dynamics_final.m
+```
 
 ---
 
 # Motor Sizing
 
-Motor requirements were derived from:
+The propulsion actuator was sized using:
 
-- hydrodynamic power
-- hydrodynamic torque
-- mechanical losses
+- predicted hydrodynamic power
+- required hydrodynamic torque
+- drivetrain/mechanical efficiency
 - silicone deformation losses
 - safety margin
 
-The model estimated the required propulsion actuator capacity before final motor selection.
+The final propulsion motor was a:
+
+```text
+ChiHai CHR-GM25-370ABHL
+12 V brushed DC geared motor
+350 RPM
+Integrated incremental encoder
+```
 
 ---
 
-# Testing & Validation
+# Experimental Validation
 
-Validation was performed progressively.
-
----
-
-## Dry Motion Test
-
-The first test verified:
-
-- motor-driven tail motion
-- linkage operation inside the silicone sleeve
-- normal mode
-- fast mode
-- servo/head response
-
-The expected oscillatory tail motion was successfully produced in air.
+Testing followed a progressive process to avoid exposing the final electronics to water before the mechanical system had been validated.
 
 ---
 
-## Waterproofing & Buoyancy Test
+## 1. Dry Motion Test
 
-Before powered swimming, the robot was immersed to verify:
+The first validation stage checked:
 
-- sealed electronics
+- motor-driven tail actuation
+- linkage motion through the silicone sleeve
+- normal-speed mode
+- fast-speed mode
+- servo/head movement
+
+[▶ Watch dry motion test](P.H.O.E.N.I.X_Media/P.H.O.E.N.I.X_Testing_Videos/dry_motion_test.mp4)
+
+The expected oscillatory tail motion was achieved before water testing.
+
+---
+
+## 2. Waterproofing & Buoyancy
+
+The robot was then submerged to validate:
+
+- sealing
 - sleeve integrity
-- stable flotation
-- absence of visible leaks
+- electronics isolation
+- floating posture
+- absence of visible leakage
 
-The prototype passed the initial immersion check.
-
----
-
-## Initial In-Water Trial
-
-The first swimming trial was performed without the final stabilizing fins.
-
-The robot produced forward motion, but directional stability was limited.
-
-This test motivated the addition of passive fins to reduce roll and yaw.
+This stage confirmed that the prototype was ready for powered aquatic testing.
 
 ---
 
-# Experimental Thrust Test
+## 3. Initial In-Water Trial
 
-Experimental thrust was measured using a load-cell setup and compared with theoretical predictions.
+The first swimming test was performed without the final stabilizing fins.
 
-At 1.5 Hz:
+[▶ Watch initial water trial](P.H.O.E.N.I.X_Media/P.H.O.E.N.I.X_Testing_Videos/initial_water_trial.mp4)
+
+The robot generated forward propulsion, but directional stability was limited.
+
+Observed roll and yaw motivated the addition of passive stabilizing fins before the final test.
+
+---
+
+# Thrust Measurement
+
+A load-cell test was used to compare theoretical and experimental propulsion.
+
+At **1.5 Hz**:
 
 ```text
 Theoretical peak hydrodynamic thrust ≈ 1.20 N
@@ -528,19 +533,27 @@ Experimental peak dynamic load      ≈ 1.38 N
 Difference                          ≈ 15%
 ```
 
-The difference reflects effects not fully captured by the ideal model, including:
+![Theoretical vs experimental thrust](P.H.O.E.N.I.X_Media/P.H.O.E.N.I.X_Images/thrust_comparison.png)
+
+### Physical Test
+
+![Thrust measurement setup](P.H.O.E.N.I.X_Media/P.H.O.E.N.I.X_Testing_Videos/thrust_measurement_testing.jpeg)
+
+[▶ Watch thrust measurement](P.H.O.E.N.I.X_Media/P.H.O.E.N.I.X_Testing_Videos/thrust_measurement_testing.mp4)
+
+The experimental value includes effects that are not fully represented in the simplified theoretical model, including:
 
 - tail inertia
 - linkage losses
 - turbulence
-- flexibility
+- structural flexibility
 - non-ideal tail motion
 
 ---
 
 # Final Swimming Test
 
-The final prototype was tested in water with the completed mechanical and stabilization configuration.
+The complete robot was tested in water with the final stabilization configuration.
 
 At:
 
@@ -548,151 +561,107 @@ At:
 Tail frequency: 1.5 Hz
 ```
 
-the robot achieved:
+the prototype achieved:
 
 ```text
 Swimming speed: 0.33 m/s
-Body-length-normalized speed: 0.73 BL/s
+Normalized speed: 0.73 body lengths/s
 ```
 
-The final test demonstrated successful integration of:
+[▶ Watch full swimming test](P.H.O.E.N.I.X_Media/P.H.O.E.N.I.X_Testing_Videos/full_swimming_test.mp4)
 
-- propulsion
-- mechanical transmission
+An additional underwater view of the propulsion behaviour is available here:
+
+[▶ Underwater propulsion view](P.H.O.E.N.I.X_Media/P.H.O.E.N.I.X_Testing_Videos/underwater_pov_swimming_thurst_tester.mp4)
+
+---
+
+# Final Course Competition
+
+At the end of the project, the teams participated in a class swimming comparison.
+
+Each group performed a single tank-traversal trial, with performance evaluated using swimming time and body-length normalization.
+
+**PHOENIX recorded the fastest body-length-normalized traversal among the participating group robots in that single-run comparison.**
+
+Because each team performed only one trial, this result is presented as a **course demonstration result**, not as a statistically validated benchmark.
+
+[▶ Watch competition swim](P.H.O.E.N.I.X_Media/competition_final_swim.mp4)
+
+---
+
+# Engineering Iteration
+
+The project archive intentionally preserves earlier design iterations.
+
+The mechanical system evolved through changes related to:
+
+- friction
+- tail geometry
 - waterproofing
-- electronics
-- control
-- passive stability
-- head steering
+- electronics packaging
+- assembly access
+- directional stability
+- actuator integration
+
+This repository therefore documents not just the final robot, but also the engineering process used to reach it.
 
 ---
 
 # Repository Structure
 
 ```text
-PHOENIX/
+bioinspired-robotic-fish/
 │
 ├── README.md
 │
-├── PHOENIX_Code.ino
+├── P.H.O.E.N.I.X_CAD/
+│   ├── P.H.O.E.N.I.X.SLDASM
+│   ├── Tail_Links_Assembly.SLDASM
+│   ├── Body_V3.SLDPRT
+│   ├── Link3.SLDPRT
+│   ├── Link4.SLDPRT
+│   ├── Link5_V3.SLDPRT
+│   └── ...
 │
-├── PHOENIX cad/
-│   └── Final robot CAD
+├── P.H.O.E.N.I.X_Software/
+│   ├── Dynamics Simulation/
+│   │   └── Dynamics_final.m
+│   │
+│   ├── PHOENIX_CODE/
+│   │   └── PHOENIX_CODE.ino
+│   │
+│   ├── Servo/
+│   │   └── Servo.ino
+│   │
+│   └── Software_Used_During_Testing/
+│       ├── Calibration_Code/
+│       ├── Main_Logic_withPID/
+│       └── Ramp_up/
 │
-├── 2026 cad/
-│   └── Archived design iterations
+├── P.H.O.E.N.I.X_Media/
+│   ├── P.H.O.E.N.I.X_CAD/
+│   ├── P.H.O.E.N.I.X_Images/
+│   ├── P.H.O.E.N.I.X_Testing_Videos/
+│   └── competition_final_swim.mp4
 │
-├── Software_Used_During_Testing/
-│   ├── motor tests
-│   ├── encoder tests
-│   ├── IMU calibration
-│   ├── servo tests
-│   └── diagnostic scripts
-│
-├── dynamics/
-│   └── MATLAB modelling and simulation
-│
-└── media/
-    └── testing and swimming demonstrations
+└── P.H.O.E.N.I.X_Doc/
+    └── Bioinspired Robotics Lab Project Presentation_vf-compressed.pdf
 ```
-
----
-
-# CAD Navigation
-
-## `PHOENIX cad/`
-
-Contains the **final design** used for the working prototype.
-
-This includes the final:
-
-- waterproof body
-- tail mechanism
-- motor supports
-- fins
-- steering head
-- assembly geometry
-
-## `2026 cad/`
-
-Contains earlier design iterations and failed prototypes.
-
-These files are intentionally retained because they document the engineering iteration process, including changes related to:
-
-- friction
-- waterproofing
-- manufacturability
-- mechanism geometry
-- assembly access
-
----
-
-# Code Navigation
-
-## `PHOENIX_Code.ino`
-
-Final integrated Arduino control software.
-
-It includes:
-
-- propulsion logic
-- PID speed control
-- encoder feedback
-- IMU input
-- head stabilization
-- operating-mode state machine
-- soft-start behaviour
-
-Required Arduino libraries include:
-
-```text
-MPU9250_asukiaaa
-util/atomic.h
-```
-
-## `Software_Used_During_Testing/`
-
-Development and diagnostic code used during integration.
-
-Examples include:
-
-- DC motor tests
-- encoder tests
-- IMU calibration
-- servo tests
-- subsystem diagnostics
-
-These files are retained to show the testing process rather than only the final working code.
-
----
-
-# Engineering Iteration
-
-One important part of this project was the iterative development process.
-
-Earlier versions encountered problems involving:
-
-- friction
-- sealing
-- assembly access
-- directional stability
-- mechanical integration
-
-The archived CAD and testing software are retained to document how the design evolved toward the final working system.
 
 ---
 
 # Limitations
 
-The prototype successfully achieved its primary objective, but several limitations remain:
+The prototype achieved the primary project objective, but several limitations remain:
 
-- straight-line control is still relatively simple
-- swimming tests were conducted in a controlled environment
-- hydrodynamic modelling uses simplifying assumptions
-- tail flexibility and turbulence are difficult to model precisely
-- active steering capability could be extended
-- long-duration waterproofing was not fully characterized
+- swimming experiments were performed in a controlled tank environment
+- the hydrodynamic model uses simplifying assumptions
+- tail-fluid interaction is difficult to represent exactly
+- long-duration waterproofing was not characterized
+- steering and trajectory tracking remain relatively simple
 - full autonomous navigation was outside the project scope
+- the final competition comparison used only one trial per team
 
 ---
 
@@ -701,13 +670,15 @@ The prototype successfully achieved its primary objective, but several limitatio
 Potential improvements include:
 
 - vision-based navigation
-- closed-loop trajectory control
-- depth control
-- improved hydrodynamic modelling
+- closed-loop trajectory tracking
+- active depth control
 - optimized tail geometry
-- improved energy efficiency
+- improved hydrodynamic modelling
+- improved waterproofing durability
+- reduced drivetrain losses
+- energy-efficiency analysis
+- longer-duration endurance tests
 - autonomous underwater navigation
-- longer-duration endurance testing
 
 ---
 
@@ -719,27 +690,28 @@ This project provides evidence of experience in:
 - underwater robotics
 - robotic locomotion
 - mechatronics
-- mechanical design
+- SolidWorks
 - CAD
 - 3D printing
-- compliant mechanisms
 - silicone molding
-- waterproofing
+- waterproof mechanical design
 - electromechanical integration
 - actuator selection
-- embedded electronics
 - Arduino
+- embedded systems
 - PID control
 - encoder feedback
 - IMU sensing
 - servo control
 - MATLAB
-- dynamics modelling
 - hydrodynamic modelling
+- dynamics
 - motor sizing
-- experimental validation
+- experimental robotics
 - thrust measurement
 - iterative prototyping
+- system integration
+- hardware testing
 
 ---
 
@@ -747,22 +719,22 @@ This project provides evidence of experience in:
 
 PHOENIX was developed as a **five-person academic team project**.
 
-The complete robot, software, CAD and experimental system were developed collaboratively.
+The robot, software, CAD, electronics, and experimental programme were developed collaboratively.
 
-My main contributions were concentrated in:
+My primary contributions were:
 
-- tail mechanical CAD and design
-- propulsion mechanism development
+- mechanical CAD and design of the tail system
+- development and physical implementation of the propulsion mechanism
 - 3D printing
-- mechanical assembly
 - silicone molding
 - shaft bending
-- waterproofing and sealing
+- mechanical assembly
+- sealing and waterproofing
 - electronics/component selection and packaging
 - system integration
 - experimental testing
 
-Repository software and system-level design are presented as team work unless explicitly identified otherwise.
+Software and system-level code are presented as team project work unless explicitly stated otherwise.
 
 ---
 
@@ -770,12 +742,14 @@ Repository software and system-level design are presented as team work unless ex
 
 ✅ **Completed functional underwater robotic prototype**
 
-The final system successfully demonstrated:
+The final system demonstrated:
 
 - waterproof operation
-- buoyant deployment
+- stable deployment
 - oscillatory tail propulsion
-- closed-loop motor-speed control
-- active head stabilization
-- measurable thrust
-- straight-line swimming in water
+- closed-loop propulsion-speed control
+- IMU-based head stabilization
+- experimentally measured thrust
+- straight-line swimming
+- 0.33 m/s swimming speed at 1.5 Hz
+- successful final course competition run
